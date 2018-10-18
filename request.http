@@ -1,0 +1,47 @@
+###
+### Rock 1
+###
+
+GET http://localhost:8080/rock/1
+
+###
+### Rock any
+###
+
+GET http://localhost:8080/rock/10
+
+###
+### Sync 1
+###
+
+GET http://localhost:8081/sync/1
+
+###
+### Sync any
+###
+
+GET http://localhost:8081/sync/10
+
+###
+### async 1
+###
+
+GET http://localhost:8082/async/1
+
+###
+### async 1
+###
+
+GET http://localhost:8082/async/1/data
+
+###
+### async any
+###
+
+GET http://localhost:8082/async/81
+
+###
+### async any
+###
+
+GET http://localhost:8082/async/81/data

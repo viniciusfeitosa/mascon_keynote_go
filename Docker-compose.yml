@@ -1,0 +1,145 @@
+version: "3"
+
+services:
+  broker:
+    image: nats
+    entrypoint: "/gnatsd -DV"
+    expose:
+      - "4222"
+    ports:
+      - "8222:8222"
+    restart: always
+
+  redis_server:
+    image: redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: exit 0
+    restart: always
+
+  # -----------------------------
+  # -----------------------------
+  # --------- The Rock ----------
+  # -----------------------------
+  # -----------------------------
+
+  the_rock:
+    image: the_rock
+    build: ./example1/
+    volumes:
+      - "./example1:/app"
+    environment:
+      - BROKER_URI=nats://broker:4222
+    ports:
+      - "8080:5000"
+    depends_on:
+      - broker
+    links:
+      - broker
+    restart: always
+
+  # -----------------------------
+  # -----------------------------
+  # ------- Sync Servers --------
+  # -----------------------------
+  # -----------------------------
+
+  sync1:
+    image: sync1
+    build: ./example2/sync1/
+    volumes:
+      - "./example2/sync1:/app"
+    environment:
+      - SYNC2_URL=sync2:5000
+      - SYNC3_URL=sync3:5000
+    ports:
+      - "8081:5000"
+    depends_on:
+      - broker
+      - redis_server
+    links:
+      - broker
+      - redis_server
+    restart: always
+
+  sync2:
+    image: sync2
+    build: ./example2/sync2/
+    volumes:
+      - "./example2/sync2:/app"
+    expose:
+      - 5000
+    depends_on:
+      - broker
+    links:
+      - broker
+    restart: always
+
+  sync3:
+    image: sync3
+    build: ./example2/sync3/
+    volumes:
+      - "./example2/sync3:/app"
+    expose:
+      - 5000
+    depends_on:
+      - broker
+      - redis_server
+    links:
+      - broker
+      - redis_server
+    restart: always
+
+  # -----------------------------
+  # -----------------------------
+  # ------- Async Servers -------
+  # -----------------------------
+  # -----------------------------
+
+  async1:
+    image: async1
+    build: ./example3/async1/
+    volumes:
+      - "./example3/async1:/app"
+    environment:
+      - BROKER_URI=nats://broker:4222
+      - REDIS_URI=redis_server:6379
+    ports:
+      - "8082:5000"
+    depends_on:
+      - broker
+      - redis_server
+    links:
+      - broker
+      - redis_server
+    restart: always
+
+  async2:
+    image: async2
+    build: ./example3/async2/
+    volumes:
+      - "./example3/async2:/app"
+    environment:
+      - BROKER_URI=nats://broker:4222
+    depends_on:
+      - broker
+    links:
+      - broker
+    restart: always
+
+  async3:
+    image: async3
+    build: ./example3/async3/
+    volumes:
+      - "./example3/async3:/app"
+    environment:
+      - BROKER_URI=nats://broker:4222
+      - REDIS_URI=redis_server:6379
+    depends_on:
+      - broker
+      - redis_server
+    links:
+      - broker
+      - redis_server
+    restart: always
