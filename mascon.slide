@@ -2,17 +2,159 @@ Parece Que Si Pero...
 
 Vinicius Feitosa Pacheco
 @ViniciusPach
+http://bit.ly/pacheco-book
+https://github.com/viniciusfeitosa/mascon_keynote_go
+https://github.com/viniciusfeitosa/mascon_keynote
 
-* ¿Qué no son microservicios?
+* Un viaje por el mundo que *NO* es microservice
 
-* Definición de microservicios
+* @viniciuspach
 
-blaldsoivsdosiosnods
+.image slides/images/vini.jpg _ 350
 
-* Buena definición de microservicios
-
-vdsnjvsbjivsbvibiv
+*Senior* *Software* *Engineer* *at* *Eventbrite*
+Author, teacher, nerd, theologist and husband.
 
 * Monoliticos (La Roca)
 
-.image slides/images/1.gif _ 930
+.image slides/images/rock1.gif _ 930
+
+* Monoliticos (La Roca)
+
+.image slides/images/mono1.png _ 930
+
+* Monoliticos (La Roca)
+
+.image slides/images/rock2.gif _ 500
+
+* Monoliticos (La Roca)
+
+.image slides/images/rock3.gif _ 500
+
+* Monoliticos (La Roca)
+
+.image slides/images/rock4.gif _ 500
+
+* Monoliticos (La Roca)
+
+- No hay nada malo con monoliticos
+- Son sencillos para debug
+- Son sencillos para monitorear
+- Son sencillos para hacer Ctrl+f
+- Con Amazon y Dólares son escalables
+
+* Pero, pero, pero...
+
+* Monoliticos (La Roca)
+
+.image slides/images/rock5.gif _ 500
+
+* Vamos a los lindos "microservices"
+
+* "Microservices"
+
+.image slides/images/chavo1.gif _ 800
+
+* "Microservice"
+
+.image slides/images/erro1.png _ 800
+
+* Mira la cara con que te mira Conan
+
+.image slides/images/conan1.gif _ 800
+
+* Juego de los errores con "Microservice"
+
+.image slides/images/erro1.png _ 800
+
+* Juego de los errores con "Microservice" - Respuesta
+
+- Los clientes conocen los microservices
+- Cada microservice tiene que implementar su propria seguridad y API
+- DB compartida
+- Un microservice necesita de otro o otros microservices para terminar una tarea
+- Los domínios del business están compartidos
+- Los deploys no son independientes
+- Los servicios se comunican de modo síncrono
+
+Hay más, pero estoy de paja
+
+* Demo
+
+.image slides/images/chavo2.gif _ 800
+
+* Lecciones aprendidas
+
+.image slides/images/chavo3.gif _ 700
+
+* Lecciones aprendidas
+
+- Código mal hecho, es mal hecho en cualquier parte
+- Código pequeño no significa buen código
+- Un problema grande transformado en microservices, es sólo un montón de problemas
+- Aplicación distribuida no es garantía de escalabilidad
+
+* Pero, pero, pero...
+
+* Hay una nueva esperanza
+
+.image slides/images/sw1.jpg _ 800
+
+* Microservices reales
+
+* Arreglando los errores
+
+.image slides/images/micro_bien.png
+
+* Arreglando los errores - respuesta
+
+- Microservices independientes
+- Deploy separado
+- Comunicación asincrónica
+- DBs separados
+- Comunicación por eventos
+- Encapsulamiento de los servicios
+
+Y mas un montón de otras cosas pero es temprano y estoy de paja
+
+* Demo
+
+.image slides/images/yoda.gif _ 800
+
+* Los microservices son para...
+
+* ...Todes!!!
+
+* Cosas que necesitas saber antes de meterse con microservices
+
+- CQRS
+- Event Sourcing
+- Eventstore
+- DDD
+- EDD
+- Canary Release
+- Containers
+
+Y mas un montón de otras cosas pero es temprano y estoy de paja
+
+* En resumen
+
+- Monoliticos no necesariamente son del Diablo
+- Microservicios no necesariamente son buenos
+
+* Para saber más, compre mi libro
+
+.image slides/images/book_promo.png _ 980
+
+.link http://bit.ly/pacheco-book http://bit.ly/pacheco-book
+
+* No te olvides, compre mi libro
+
+.image slides/images/book_promo2.png _ 980
+
+.link http://bit.ly/pacheco-book http://bit.ly/pacheco-book
+
+* Crédito para las imágenes Tucumaneadas
+
+- https://www.researchgate.net/figure/Examples-of-monolithic-software-systems_fig1_326868944
+- https://blogs.sap.com/2017/09/25/strangler-applications-monolith-to-microservices/
