@@ -18,6 +18,18 @@ services:
       test: exit 0
     restart: always
 
+  loadbalance:
+    build: ./example3/nginx
+    ports:
+      - "80:80"
+    links:
+      - async1
+      - redis_server
+    depends_on:
+      - async1
+      - redis_server
+    restart: always
+
   # -----------------------------
   # -----------------------------
   # --------- The Rock ----------
@@ -105,6 +117,8 @@ services:
     environment:
       - BROKER_URI=nats://broker:4222
       - REDIS_URI=redis_server:6379
+    expose:
+      - 5000
     ports:
       - "8082:5000"
     depends_on:

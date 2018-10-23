@@ -45,3 +45,10 @@ GET http://localhost:8082/async/10
 ###
 
 GET http://localhost:8082/async/10/data
+
+
+###
+### Nginx redis
+###
+
+GET http://localhost/redis?id=1
